@@ -1,9 +1,21 @@
-require('./bootstrap');
+import axios from "axios";
 
-window.Vue = require('vue').default;
+window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
-Vue.component('navigation', require('./components/Navigation.vue').default);
+try {
+    window.Popper = require("popper.js").default;
+    window.$ = window.jQuery = require("jquery");
 
+    require("bootstrap");
+} catch (e) {}
+
+import Vue from "vue";
+import VueRouter from "vue-router";
+
+Vue.use(VueRouter);
+
+Vue.component("navigation", require("./components/Navigation.vue").default);
+Vue.productionTips = false;
 const app = new Vue({
-    el: '#larahmat',
+    el: "#larahmat"
 });
