@@ -27,6 +27,12 @@ class NoteController extends Controller
      */
     public function store()
     {
+        request()->validate([
+            'title' => 'required',
+            'subject' => 'required|integer',
+            'description' => 'required',
+        ]);
+
         $note = Note::create([
             'subject_id' => request('subject'),
             'title' => request('title'),

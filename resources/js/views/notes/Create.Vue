@@ -14,6 +14,9 @@
                   id="title"
                   class="form-control"
                 />
+                <div v-if="theErrors.title" class="mt-2 text-danger">
+                  {{ theErrors.title[0] }}
+                </div>
 
                 <div class="form-group">
                   <label for="subject">Subject</label>
@@ -30,6 +33,9 @@
                       {{ subject.name }}
                     </option>
                   </select>
+                  <div v-if="theErrors.subject" class="mt-2 text-danger">
+                    {{ theErrors.subject[0] }}
+                  </div>
                 </div>
 
                 <div class="form-group">
@@ -40,6 +46,9 @@
                     rows="5"
                     class="form-control"
                   ></textarea>
+                  <div v-if="theErrors.description" class="mt-2 text-danger">
+                    {{ theErrors.description[0] }}
+                  </div>
                 </div>
               </div>
 
@@ -62,6 +71,7 @@ export default {
         subject: "",
       },
       subjects: [],
+      theErrors: [],
     };
   },
 
@@ -78,11 +88,28 @@ export default {
     },
 
     async store() {
-      let response = await axios.post("/api/notes/create-new-note", this.form);
-      if (response.status === 200) {
-        this.form.title = "";
-        this.form.subject = "";
-        this.form.description = "";
+      try {
+        let response = await axios.post(
+          "/api/notes/create-new-note",
+          this.form
+        );
+        if (response.status === 200) {
+          this.form.title = "";
+          this.form.subject = "";
+          this.form.description = "";
+          this.theErrors = [];
+
+          this.$toasted.show(response.data.message, {
+            type: "success",
+            duration: 3000,
+          });
+        }
+      } catch (e) {
+        this.$toasted.show("Something went wrong.", {
+          type: "error",
+          duration: 3000,
+        });
+        this.theErrors = e.response.data.errors;
       }
     },
   },

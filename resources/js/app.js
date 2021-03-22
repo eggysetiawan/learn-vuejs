@@ -6,9 +6,12 @@ try {
     window.$ = window.jQuery = require("jquery");
     require("bootstrap");
 } catch (e) {}
-import Vue from "vue";
 
+import Vue from "vue";
 import VueRouter from "vue-router";
+import Toasted from "vue-toasted";
+
+Vue.use(Toasted);
 
 import router from "./router";
 
