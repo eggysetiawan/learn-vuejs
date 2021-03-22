@@ -1,6 +1,8 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <router-link class="navbar-brand" :to="{ name: 'home' }"
+      >Navbar</router-link
+    >
     <button
       class="navbar-toggler"
       type="button"
@@ -21,7 +23,9 @@
           </router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link" to="/about">About</router-link>
+          <router-link class="nav-link" :to="{ name: 'pages.about' }"
+            >About</router-link
+          >
         </li>
         <li class="nav-item">
           <router-link class="nav-link" :to="{ name: 'pages.contact' }"

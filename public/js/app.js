@@ -1891,6 +1891,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     console.log("Component mounted.");
@@ -20512,9 +20516,11 @@ var render = function() {
     "nav",
     { staticClass: "navbar navbar-expand-lg navbar-dark bg-primary" },
     [
-      _c("a", { staticClass: "navbar-brand", attrs: { href: "#" } }, [
-        _vm._v("Navbar")
-      ]),
+      _c(
+        "router-link",
+        { staticClass: "navbar-brand", attrs: { to: { name: "home" } } },
+        [_vm._v("Navbar")]
+      ),
       _vm._v(" "),
       _vm._m(0),
       _vm._v(" "),
@@ -20548,7 +20554,10 @@ var render = function() {
               [
                 _c(
                   "router-link",
-                  { staticClass: "nav-link", attrs: { to: "/about" } },
+                  {
+                    staticClass: "nav-link",
+                    attrs: { to: { name: "pages.about" } }
+                  },
                   [_vm._v("About")]
                 )
               ],
@@ -20575,7 +20584,8 @@ var render = function() {
           _vm._m(1)
         ]
       )
-    ]
+    ],
+    1
   )
 }
 var staticRenderFns = [
