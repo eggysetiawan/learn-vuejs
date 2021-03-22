@@ -32,6 +32,27 @@
             >Contact</router-link
           >
         </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Notes
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <router-link class="dropdown-item" :to="{ name: 'notes.create' }"
+              >Create Note</router-link
+            >
+            <!-- <a class="dropdown-item" href="#">Another action</a> -->
+            <div class="dropdown-divider"></div>
+            <!-- <a class="dropdown-item" href="#">Something else here</a> -->
+          </div>
+        </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input
@@ -50,8 +71,6 @@
 
 <script>
 export default {
-  mounted() {
-    console.log("Component mounted.");
-  },
+  mounted() {},
 };
 </script>
