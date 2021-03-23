@@ -48,6 +48,9 @@
             <router-link class="dropdown-item" :to="{ name: 'notes.create' }"
               >Create Note</router-link
             >
+            <router-link class="dropdown-item" :to="{ name: 'notes.table' }"
+              >Table of Note</router-link
+            >
             <!-- <a class="dropdown-item" href="#">Another action</a> -->
             <div class="dropdown-divider"></div>
             <!-- <a class="dropdown-item" href="#">Something else here</a> -->

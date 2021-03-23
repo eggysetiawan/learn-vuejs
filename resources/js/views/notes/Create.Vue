@@ -17,7 +17,6 @@
                 <div v-if="theErrors.title" class="mt-2 text-danger">
                   {{ theErrors.title[0] }}
                 </div>
-
                 <div class="form-group">
                   <label for="subject">Subject</label>
                   <select
@@ -37,7 +36,6 @@
                     {{ theErrors.subject[0] }}
                   </div>
                 </div>
-
                 <div class="form-group">
                   <label for="description">Description</label>
                   <textarea
@@ -115,4 +113,3 @@ export default {
   },
 };
 </script>
-
