@@ -8,6 +8,7 @@
           <th>Title</th>
           <th>Subject</th>
           <th>Published</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -20,6 +21,12 @@
           </td>
           <td>{{ note.subject }}</td>
           <td>{{ note.published }}</td>
+          <td>
+            <router-link
+              :to="{ name: 'notes.edit', params: { noteSlug: note.slug } }"
+              ><button class="btn btn-warning">Edit</button></router-link
+            >
+          </td>
         </tr>
       </tbody>
     </table>
