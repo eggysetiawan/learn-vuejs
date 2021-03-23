@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class="card">
-          <div class="card-header">New Note</div>
+          <div class="card-header">Edit Note</div>
           <div class="card-body">
             <form action="" method="post" @submit.prevent="store">
               <div class="form-group">
@@ -79,10 +79,10 @@ export default {
     },
 
     async getNote() {
-      let response = await axios.get(
-        `/api/notes/${this.$route.params.noteSlug}/edit`
+      let { data } = await axios.get(
+        `/api/notes/${this.$route.params.noteSlug}`
       );
-      this.form = response.data.data;
+      this.form = data.data;
       console.log(this.form);
     },
   },

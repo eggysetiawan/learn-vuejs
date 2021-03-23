@@ -2293,20 +2293,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-        var response;
+        var _yield$axios$get, data;
+
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return axios.get("/api/notes/".concat(_this2.$route.params.noteSlug, "/edit"));
+                return axios.get("/api/notes/".concat(_this2.$route.params.noteSlug));
 
               case 2:
-                response = _context2.sent;
-                _this2.form = response.data.data;
+                _yield$axios$get = _context2.sent;
+                data = _yield$axios$get.data;
+                _this2.form = data.data;
                 console.log(_this2.form);
 
-              case 5:
+              case 6:
               case "end":
                 return _context2.stop();
             }
@@ -22567,7 +22569,7 @@ var render = function() {
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-6" }, [
         _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header" }, [_vm._v("New Note")]),
+          _c("div", { staticClass: "card-header" }, [_vm._v("Edit Note")]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
             _c(
