@@ -6,6 +6,7 @@ use App\Models\Note;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\NoteResource;
 
 class NoteController extends Controller
 {
@@ -16,7 +17,8 @@ class NoteController extends Controller
      */
     public function index()
     {
-        //
+        $notes = Note::with('subject')->latest()->get();
+        return NoteResource::collection($notes);
     }
 
     /**
@@ -52,9 +54,9 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Note $note)
     {
-        //
+        return NoteResource::make($note);
     }
 
     /**

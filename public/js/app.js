@@ -2249,7 +2249,7 @@ __webpack_require__.r(__webpack_exports__);
     name: "pages.contact",
     component: _views_Contact__WEBPACK_IMPORTED_MODULE_2__.default
   }, {
-    path: "/notes",
+    path: "/notes/create",
     name: "notes.create",
     component: _views_notes_Create__WEBPACK_IMPORTED_MODULE_3__.default
   }]

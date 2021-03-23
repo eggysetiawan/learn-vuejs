@@ -24,7 +24,7 @@ export default {
             component: Contact
         },
         {
-            path: "/notes",
+            path: "/notes/create",
             name: "notes.create",
             component: NewNote
         }

@@ -9,6 +9,7 @@ class Subject extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
     public function notes()
     {
         return $this->hasMany(Note::class);
