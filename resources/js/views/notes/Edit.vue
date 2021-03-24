@@ -5,7 +5,7 @@
         <div class="card">
           <div class="card-header">Edit Note</div>
           <div class="card-body">
-            <form action="" method="post" @submit.prevent="store">
+            <form action="" method="post" @submit.prevent="update">
               <div class="form-group">
                 <label for="title">Title</label>
                 <input
@@ -19,14 +19,24 @@
                 </div>
                 <div class="form-group">
                   <label for="subject">Subject</label>
-                  <select id="subject" class="form-control">
+                  <select
+                    @change="selectedSubject"
+                    id="subject"
+                    class="form-control"
+                  >
                     <option
-                      v-for="subject in subjects"
-                      :key="subject.id"
-                      :value="subject.id"
-                    >
-                      {{ subject.name }}
-                    </option>
+                      :value="form.subjectId"
+                      v-text="form.subject"
+                    ></option>
+                    <template v-for="subject in subjects">
+                      <option
+                        v-if="form.subjectId !== subject.id"
+                        :key="subject.id"
+                        :value="subject.id"
+                      >
+                        {{ subject.name }}
+                      </option>
+                    </template>
                   </select>
                   <div v-if="theErrors.subject" class="mt-2 text-danger">
                     {{ theErrors.subject[0] }}
@@ -62,6 +72,7 @@ export default {
       form: [],
       subjects: [],
       theErrors: [],
+      selected: "",
     };
   },
 
@@ -84,6 +95,21 @@ export default {
       );
       this.form = data.data;
       console.log(this.form);
+    },
+
+    selectedSubject(e) {
+      this.selected = e.target.value;
+    },
+
+    async update() {
+      this.form["subject"] = this.selected || this.form.subjectId;
+      let response = await axios.patch(
+        `/api/notes/${this.$route.params.noteSlug}/edit`,
+        this.form
+      );
+      if (response.status == 200) {
+        console.log(response.data);
+      }
     },
   },
 };

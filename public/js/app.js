@@ -2249,12 +2249,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       form: [],
       subjects: [],
-      theErrors: []
+      theErrors: [],
+      selected: ""
     };
   },
   mounted: function mounted() {
@@ -2314,6 +2325,37 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             }
           }
         }, _callee2);
+      }))();
+    },
+    selectedSubject: function selectedSubject(e) {
+      this.selected = e.target.value;
+    },
+    update: function update() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _this3.form["subject"] = _this3.selected || _this3.form.subjectId;
+                _context3.next = 3;
+                return axios.patch("/api/notes/".concat(_this3.$route.params.noteSlug, "/edit"), _this3.form);
+
+              case 3:
+                response = _context3.sent;
+
+                if (response.status == 200) {
+                  console.log(response.data);
+                }
+
+              case 5:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
       }))();
     }
   }
@@ -22579,7 +22621,7 @@ var render = function() {
                 on: {
                   submit: function($event) {
                     $event.preventDefault()
-                    return _vm.store($event)
+                    return _vm.update($event)
                   }
                 }
               },
@@ -22626,21 +22668,41 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "select",
-                      { staticClass: "form-control", attrs: { id: "subject" } },
-                      _vm._l(_vm.subjects, function(subject) {
-                        return _c(
-                          "option",
-                          { key: subject.id, domProps: { value: subject.id } },
-                          [
-                            _vm._v(
-                              "\n                    " +
-                                _vm._s(subject.name) +
-                                "\n                  "
-                            )
+                      {
+                        staticClass: "form-control",
+                        attrs: { id: "subject" },
+                        on: { change: _vm.selectedSubject }
+                      },
+                      [
+                        _c("option", {
+                          domProps: {
+                            value: _vm.form.subjectId,
+                            textContent: _vm._s(_vm.form.subject)
+                          }
+                        }),
+                        _vm._v(" "),
+                        _vm._l(_vm.subjects, function(subject) {
+                          return [
+                            _vm.form.subjectId !== subject.id
+                              ? _c(
+                                  "option",
+                                  {
+                                    key: subject.id,
+                                    domProps: { value: subject.id }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                      " +
+                                        _vm._s(subject.name) +
+                                        "\n                    "
+                                    )
+                                  ]
+                                )
+                              : _vm._e()
                           ]
-                        )
-                      }),
-                      0
+                        })
+                      ],
+                      2
                     ),
                     _vm._v(" "),
                     _vm.theErrors.subject

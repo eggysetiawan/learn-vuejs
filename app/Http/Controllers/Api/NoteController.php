@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Note;
 use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\NoteResource;
 
@@ -66,9 +65,10 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Note $note)
     {
-        //
+        return $note;
+        $note->update([]);
     }
 
     /**
