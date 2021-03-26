@@ -2075,6 +2075,92 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -2083,6 +2169,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         description: "",
         subject: ""
       },
+      loading: false,
       subjects: [],
       theErrors: []
     };
@@ -2127,30 +2214,30 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _context2.prev = 0;
-                _context2.next = 3;
+                _this2.loading = true;
+                _context2.prev = 1;
+                _context2.next = 4;
                 return axios.post("/api/notes/create-new-note", _this2.form);
 
-              case 3:
+              case 4:
                 response = _context2.sent;
                 _this2.form.title = "";
                 _this2.form.subject = "";
                 _this2.form.description = "";
-                _this2.theErrors = [];
-
-                _this2.$router.push("/notes/table");
+                _this2.theErrors = []; // this.$router.push("/notes/table");
 
                 _this2.$toasted.show(response.data.message, {
                   type: "success",
                   duration: 6000
                 });
 
-                _context2.next = 16;
+                _this2.loading = false;
+                _context2.next = 17;
                 break;
 
-              case 12:
-                _context2.prev = 12;
-                _context2.t0 = _context2["catch"](0);
+              case 13:
+                _context2.prev = 13;
+                _context2.t0 = _context2["catch"](1);
 
                 _this2.$toasted.show("Something went wrong.", {
                   type: "error",
@@ -2159,12 +2246,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this2.theErrors = _context2.t0.response.data.errors;
 
-              case 16:
+              case 17:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[0, 12]]);
+        }, _callee2, null, [[1, 13]]);
       }))();
     }
   }
@@ -2273,6 +2360,87 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -22737,8 +22905,156 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "button",
-                  { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-                  [_vm._v("Save")]
+                  {
+                    staticClass: "btn btn-primary d-flex align-items-center",
+                    attrs: { type: "submit" }
+                  },
+                  [
+                    _vm._v("\n              Save\n              "),
+                    _vm.loading
+                      ? [
+                          _c(
+                            "svg",
+                            {
+                              staticStyle: {
+                                margin: "auto",
+                                background: "none",
+                                display: "block",
+                                "shape-rendering": "auto"
+                              },
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                                width: "30px",
+                                height: "20px",
+                                viewBox: "0 0 100 100",
+                                preserveAspectRatio: "xMidYMid"
+                              }
+                            },
+                            [
+                              _c(
+                                "rect",
+                                {
+                                  attrs: {
+                                    x: "17.5",
+                                    y: "30",
+                                    width: "15",
+                                    height: "40",
+                                    fill: "#d6e6e9"
+                                  }
+                                },
+                                [
+                                  _c("animate", {
+                                    attrs: {
+                                      attributeName: "y",
+                                      repeatCount: "indefinite",
+                                      dur: "1s",
+                                      calcMode: "spline",
+                                      keyTimes: "0;0.5;1",
+                                      values: "18;30;30",
+                                      keySplines: "0 0.5 0.5 1;0 0.5 0.5 1",
+                                      begin: "-0.2s"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("animate", {
+                                    attrs: {
+                                      attributeName: "height",
+                                      repeatCount: "indefinite",
+                                      dur: "1s",
+                                      calcMode: "spline",
+                                      keyTimes: "0;0.5;1",
+                                      values: "64;40;40",
+                                      keySplines: "0 0.5 0.5 1;0 0.5 0.5 1",
+                                      begin: "-0.2s"
+                                    }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "rect",
+                                {
+                                  attrs: {
+                                    x: "42.5",
+                                    y: "30",
+                                    width: "15",
+                                    height: "40",
+                                    fill: "#aec7da"
+                                  }
+                                },
+                                [
+                                  _c("animate", {
+                                    attrs: {
+                                      attributeName: "y",
+                                      repeatCount: "indefinite",
+                                      dur: "1s",
+                                      calcMode: "spline",
+                                      keyTimes: "0;0.5;1",
+                                      values: "20.999999999999996;30;30",
+                                      keySplines: "0 0.5 0.5 1;0 0.5 0.5 1",
+                                      begin: "-0.1s"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("animate", {
+                                    attrs: {
+                                      attributeName: "height",
+                                      repeatCount: "indefinite",
+                                      dur: "1s",
+                                      calcMode: "spline",
+                                      keyTimes: "0;0.5;1",
+                                      values: "58.00000000000001;40;40",
+                                      keySplines: "0 0.5 0.5 1;0 0.5 0.5 1",
+                                      begin: "-0.1s"
+                                    }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "rect",
+                                {
+                                  attrs: {
+                                    x: "67.5",
+                                    y: "30",
+                                    width: "15",
+                                    height: "40",
+                                    fill: "#87b9cd"
+                                  }
+                                },
+                                [
+                                  _c("animate", {
+                                    attrs: {
+                                      attributeName: "y",
+                                      repeatCount: "indefinite",
+                                      dur: "1s",
+                                      calcMode: "spline",
+                                      keyTimes: "0;0.5;1",
+                                      values: "20.999999999999996;30;30",
+                                      keySplines: "0 0.5 0.5 1;0 0.5 0.5 1"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("animate", {
+                                    attrs: {
+                                      attributeName: "height",
+                                      repeatCount: "indefinite",
+                                      dur: "1s",
+                                      calcMode: "spline",
+                                      keyTimes: "0;0.5;1",
+                                      values: "58.00000000000001;40;40",
+                                      keySplines: "0 0.5 0.5 1;0 0.5 0.5 1"
+                                    }
+                                  })
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      : _vm._e()
+                  ],
+                  2
                 )
               ]
             )
@@ -22955,7 +23271,147 @@ var render = function() {
                 _c(
                   "button",
                   { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-                  [_vm._v("Edit")]
+                  [
+                    _vm._v("\n              Edit\n              "),
+                    _c(
+                      "svg",
+                      {
+                        staticStyle: {
+                          margin: "auto",
+                          background: "none",
+                          display: "block",
+                          "shape-rendering": "auto"
+                        },
+                        attrs: {
+                          xmlns: "http://www.w3.org/2000/svg",
+                          "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                          width: "30px",
+                          height: "30px",
+                          viewBox: "0 0 100 100",
+                          preserveAspectRatio: "xMidYMid"
+                        }
+                      },
+                      [
+                        _c(
+                          "rect",
+                          {
+                            attrs: {
+                              x: "17.5",
+                              y: "30",
+                              width: "15",
+                              height: "40",
+                              fill: "#d6e6e9"
+                            }
+                          },
+                          [
+                            _c("animate", {
+                              attrs: {
+                                attributeName: "y",
+                                repeatCount: "indefinite",
+                                dur: "1s",
+                                calcMode: "spline",
+                                keyTimes: "0;0.5;1",
+                                values: "18;30;30",
+                                keySplines: "0 0.5 0.5 1;0 0.5 0.5 1",
+                                begin: "-0.2s"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("animate", {
+                              attrs: {
+                                attributeName: "height",
+                                repeatCount: "indefinite",
+                                dur: "1s",
+                                calcMode: "spline",
+                                keyTimes: "0;0.5;1",
+                                values: "64;40;40",
+                                keySplines: "0 0.5 0.5 1;0 0.5 0.5 1",
+                                begin: "-0.2s"
+                              }
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "rect",
+                          {
+                            attrs: {
+                              x: "42.5",
+                              y: "30",
+                              width: "15",
+                              height: "40",
+                              fill: "#aec7da"
+                            }
+                          },
+                          [
+                            _c("animate", {
+                              attrs: {
+                                attributeName: "y",
+                                repeatCount: "indefinite",
+                                dur: "1s",
+                                calcMode: "spline",
+                                keyTimes: "0;0.5;1",
+                                values: "20.999999999999996;30;30",
+                                keySplines: "0 0.5 0.5 1;0 0.5 0.5 1",
+                                begin: "-0.1s"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("animate", {
+                              attrs: {
+                                attributeName: "height",
+                                repeatCount: "indefinite",
+                                dur: "1s",
+                                calcMode: "spline",
+                                keyTimes: "0;0.5;1",
+                                values: "58.00000000000001;40;40",
+                                keySplines: "0 0.5 0.5 1;0 0.5 0.5 1",
+                                begin: "-0.1s"
+                              }
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "rect",
+                          {
+                            attrs: {
+                              x: "67.5",
+                              y: "30",
+                              width: "15",
+                              height: "40",
+                              fill: "#87b9cd"
+                            }
+                          },
+                          [
+                            _c("animate", {
+                              attrs: {
+                                attributeName: "y",
+                                repeatCount: "indefinite",
+                                dur: "1s",
+                                calcMode: "spline",
+                                keyTimes: "0;0.5;1",
+                                values: "20.999999999999996;30;30",
+                                keySplines: "0 0.5 0.5 1;0 0.5 0.5 1"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("animate", {
+                              attrs: {
+                                attributeName: "height",
+                                repeatCount: "indefinite",
+                                dur: "1s",
+                                calcMode: "spline",
+                                keyTimes: "0;0.5;1",
+                                values: "58.00000000000001;40;40",
+                                keySplines: "0 0.5 0.5 1;0 0.5 0.5 1"
+                              }
+                            })
+                          ]
+                        )
+                      ]
+                    )
+                  ]
                 )
               ]
             )
