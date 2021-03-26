@@ -2232,12 +2232,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 });
 
                 _this2.loading = false;
-                _context2.next = 17;
+                _context2.next = 18;
                 break;
 
               case 13:
                 _context2.prev = 13;
                 _context2.t0 = _context2["catch"](1);
+                _this2.loading = false;
 
                 _this2.$toasted.show("Something went wrong.", {
                   type: "error",
@@ -2246,7 +2247,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 _this2.theErrors = _context2.t0.response.data.errors;
 
-              case 17:
+              case 18:
               case "end":
                 return _context2.stop();
             }
@@ -2508,13 +2509,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       form: [],
       subjects: [],
       theErrors: [],
-      selected: ""
+      selected: "",
+      loading: false
     };
   },
   mounted: function mounted() {
@@ -2588,11 +2595,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
+                _this3.loading = true;
                 _this3.form["subject"] = _this3.selected || _this3.form.subjectId;
-                _context3.next = 3;
+                _context3.next = 4;
                 return axios.patch("/api/notes/".concat(_this3.$route.params.noteSlug, "/edit"), _this3.form);
 
-              case 3:
+              case 4:
                 response = _context3.sent;
 
                 if (response.status == 200) {
@@ -2601,10 +2609,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                     duration: 6000
                   });
 
+                  _this3.loading = false;
+
                   _this3.$router.push("/notes/table");
                 }
 
-              case 5:
+              case 6:
               case "end":
                 return _context3.stop();
             }
@@ -22749,7 +22759,7 @@ var render = function() {
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-6" }, [
         _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header" }, [_vm._v("New Note")]),
+          _c("div", { staticClass: "card-header" }, [_vm._v("News Note")]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
             _c(
@@ -23270,148 +23280,156 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "button",
-                  { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+                  {
+                    staticClass: "btn btn-primary d-flex align-items-center",
+                    attrs: { type: "submit" }
+                  },
                   [
                     _vm._v("\n              Edit\n              "),
-                    _c(
-                      "svg",
-                      {
-                        staticStyle: {
-                          margin: "auto",
-                          background: "none",
-                          display: "block",
-                          "shape-rendering": "auto"
-                        },
-                        attrs: {
-                          xmlns: "http://www.w3.org/2000/svg",
-                          "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                          width: "30px",
-                          height: "30px",
-                          viewBox: "0 0 100 100",
-                          preserveAspectRatio: "xMidYMid"
-                        }
-                      },
-                      [
-                        _c(
-                          "rect",
-                          {
-                            attrs: {
-                              x: "17.5",
-                              y: "30",
-                              width: "15",
-                              height: "40",
-                              fill: "#d6e6e9"
-                            }
-                          },
-                          [
-                            _c("animate", {
+                    _vm.loading
+                      ? [
+                          _c(
+                            "svg",
+                            {
+                              staticStyle: {
+                                margin: "auto",
+                                background: "none",
+                                display: "block",
+                                "shape-rendering": "auto"
+                              },
                               attrs: {
-                                attributeName: "y",
-                                repeatCount: "indefinite",
-                                dur: "1s",
-                                calcMode: "spline",
-                                keyTimes: "0;0.5;1",
-                                values: "18;30;30",
-                                keySplines: "0 0.5 0.5 1;0 0.5 0.5 1",
-                                begin: "-0.2s"
+                                xmlns: "http://www.w3.org/2000/svg",
+                                "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                                width: "30px",
+                                height: "20px",
+                                viewBox: "0 0 100 100",
+                                preserveAspectRatio: "xMidYMid"
                               }
-                            }),
-                            _vm._v(" "),
-                            _c("animate", {
-                              attrs: {
-                                attributeName: "height",
-                                repeatCount: "indefinite",
-                                dur: "1s",
-                                calcMode: "spline",
-                                keyTimes: "0;0.5;1",
-                                values: "64;40;40",
-                                keySplines: "0 0.5 0.5 1;0 0.5 0.5 1",
-                                begin: "-0.2s"
-                              }
-                            })
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "rect",
-                          {
-                            attrs: {
-                              x: "42.5",
-                              y: "30",
-                              width: "15",
-                              height: "40",
-                              fill: "#aec7da"
-                            }
-                          },
-                          [
-                            _c("animate", {
-                              attrs: {
-                                attributeName: "y",
-                                repeatCount: "indefinite",
-                                dur: "1s",
-                                calcMode: "spline",
-                                keyTimes: "0;0.5;1",
-                                values: "20.999999999999996;30;30",
-                                keySplines: "0 0.5 0.5 1;0 0.5 0.5 1",
-                                begin: "-0.1s"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("animate", {
-                              attrs: {
-                                attributeName: "height",
-                                repeatCount: "indefinite",
-                                dur: "1s",
-                                calcMode: "spline",
-                                keyTimes: "0;0.5;1",
-                                values: "58.00000000000001;40;40",
-                                keySplines: "0 0.5 0.5 1;0 0.5 0.5 1",
-                                begin: "-0.1s"
-                              }
-                            })
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "rect",
-                          {
-                            attrs: {
-                              x: "67.5",
-                              y: "30",
-                              width: "15",
-                              height: "40",
-                              fill: "#87b9cd"
-                            }
-                          },
-                          [
-                            _c("animate", {
-                              attrs: {
-                                attributeName: "y",
-                                repeatCount: "indefinite",
-                                dur: "1s",
-                                calcMode: "spline",
-                                keyTimes: "0;0.5;1",
-                                values: "20.999999999999996;30;30",
-                                keySplines: "0 0.5 0.5 1;0 0.5 0.5 1"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("animate", {
-                              attrs: {
-                                attributeName: "height",
-                                repeatCount: "indefinite",
-                                dur: "1s",
-                                calcMode: "spline",
-                                keyTimes: "0;0.5;1",
-                                values: "58.00000000000001;40;40",
-                                keySplines: "0 0.5 0.5 1;0 0.5 0.5 1"
-                              }
-                            })
-                          ]
-                        )
-                      ]
-                    )
-                  ]
+                            },
+                            [
+                              _c(
+                                "rect",
+                                {
+                                  attrs: {
+                                    x: "17.5",
+                                    y: "30",
+                                    width: "15",
+                                    height: "40",
+                                    fill: "#d6e6e9"
+                                  }
+                                },
+                                [
+                                  _c("animate", {
+                                    attrs: {
+                                      attributeName: "y",
+                                      repeatCount: "indefinite",
+                                      dur: "1s",
+                                      calcMode: "spline",
+                                      keyTimes: "0;0.5;1",
+                                      values: "18;30;30",
+                                      keySplines: "0 0.5 0.5 1;0 0.5 0.5 1",
+                                      begin: "-0.2s"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("animate", {
+                                    attrs: {
+                                      attributeName: "height",
+                                      repeatCount: "indefinite",
+                                      dur: "1s",
+                                      calcMode: "spline",
+                                      keyTimes: "0;0.5;1",
+                                      values: "64;40;40",
+                                      keySplines: "0 0.5 0.5 1;0 0.5 0.5 1",
+                                      begin: "-0.2s"
+                                    }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "rect",
+                                {
+                                  attrs: {
+                                    x: "42.5",
+                                    y: "30",
+                                    width: "15",
+                                    height: "40",
+                                    fill: "#aec7da"
+                                  }
+                                },
+                                [
+                                  _c("animate", {
+                                    attrs: {
+                                      attributeName: "y",
+                                      repeatCount: "indefinite",
+                                      dur: "1s",
+                                      calcMode: "spline",
+                                      keyTimes: "0;0.5;1",
+                                      values: "20.999999999999996;30;30",
+                                      keySplines: "0 0.5 0.5 1;0 0.5 0.5 1",
+                                      begin: "-0.1s"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("animate", {
+                                    attrs: {
+                                      attributeName: "height",
+                                      repeatCount: "indefinite",
+                                      dur: "1s",
+                                      calcMode: "spline",
+                                      keyTimes: "0;0.5;1",
+                                      values: "58.00000000000001;40;40",
+                                      keySplines: "0 0.5 0.5 1;0 0.5 0.5 1",
+                                      begin: "-0.1s"
+                                    }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "rect",
+                                {
+                                  attrs: {
+                                    x: "67.5",
+                                    y: "30",
+                                    width: "15",
+                                    height: "40",
+                                    fill: "#87b9cd"
+                                  }
+                                },
+                                [
+                                  _c("animate", {
+                                    attrs: {
+                                      attributeName: "y",
+                                      repeatCount: "indefinite",
+                                      dur: "1s",
+                                      calcMode: "spline",
+                                      keyTimes: "0;0.5;1",
+                                      values: "20.999999999999996;30;30",
+                                      keySplines: "0 0.5 0.5 1;0 0.5 0.5 1"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("animate", {
+                                    attrs: {
+                                      attributeName: "height",
+                                      repeatCount: "indefinite",
+                                      dur: "1s",
+                                      calcMode: "spline",
+                                      keyTimes: "0;0.5;1",
+                                      values: "58.00000000000001;40;40",
+                                      keySplines: "0 0.5 0.5 1;0 0.5 0.5 1"
+                                    }
+                                  })
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      : _vm._e()
+                  ],
+                  2
                 )
               ]
             )

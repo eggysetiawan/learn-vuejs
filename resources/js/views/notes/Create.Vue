@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class="card">
-          <div class="card-header">New Note</div>
+          <div class="card-header">News Note</div>
           <div class="card-body">
             <form action="" method="post" @submit.prevent="store">
               <div class="form-group">
@@ -190,6 +190,7 @@ export default {
         });
         this.loading = false;
       } catch (e) {
+        this.loading = false;
         this.$toasted.show("Something went wrong.", {
           type: "error",
           duration: 3000,
