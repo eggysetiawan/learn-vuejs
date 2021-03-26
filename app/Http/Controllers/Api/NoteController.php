@@ -47,7 +47,7 @@ class NoteController extends Controller
         return response()->json([
             'message' => 'Note was created',
             'note' => $note,
-        ]);
+        ], 200);
     }
 
     /**
@@ -87,7 +87,7 @@ class NoteController extends Controller
         return response()->json([
             'message' => 'Note was updated',
             'note' => $note,
-        ]);
+        ], 200);
     }
 
     /**
@@ -96,8 +96,12 @@ class NoteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Note $note)
     {
-        //
+        $note->delete();
+
+        return response()->json([
+            'message' => 'Note was deleted.',
+        ], 200);
     }
 }

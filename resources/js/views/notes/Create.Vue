@@ -91,17 +91,15 @@ export default {
           "/api/notes/create-new-note",
           this.form
         );
-        if (response.status === 200) {
-          this.form.title = "";
-          this.form.subject = "";
-          this.form.description = "";
-          this.theErrors = [];
-
-          this.$toasted.show(response.data.message, {
-            type: "success",
-            duration: 3000,
-          });
-        }
+        this.form.title = "";
+        this.form.subject = "";
+        this.form.description = "";
+        this.theErrors = [];
+        this.$router.push("/notes/table");
+        this.$toasted.show(response.data.message, {
+          type: "success",
+          duration: 6000,
+        });
       } catch (e) {
         this.$toasted.show("Something went wrong.", {
           type: "error",
