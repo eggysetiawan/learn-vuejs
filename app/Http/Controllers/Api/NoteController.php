@@ -6,6 +6,7 @@ use App\Models\Note;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\NoteResource;
+use App\Models\Subject;
 
 class NoteController extends Controller
 {
@@ -34,15 +35,17 @@ class NoteController extends Controller
             'description' => 'required',
         ]);
 
+        $subject = Subject::findOrFail(request('subject'));
+
         $note = Note::create([
-            'subject_id' => request('subject'),
+            'subject_id' => $subject->id,
             'title' => request('title'),
             'slug' => Str::slug(request('title')),
             'description' => request('description'),
         ]);
 
         return response()->json([
-            'message' => 'Note has been created',
+            'message' => 'Note was created',
             'note' => $note,
         ]);
     }
@@ -67,8 +70,24 @@ class NoteController extends Controller
      */
     public function update(Note $note)
     {
-        return $note;
-        $note->update([]);
+        request()->validate([
+            'title' => 'required',
+            'subject' => 'required|integer',
+            'description' => 'required',
+        ]);
+
+        $subject = Subject::findOrFail(request('subject'));
+
+        $note->update([
+            'subject_id' => $subject->id,
+            'title' => request('title'),
+            'description' => request('description'),
+        ]);
+
+        return response()->json([
+            'message' => 'Note was updated',
+            'note' => $note,
+        ]);
     }
 
     /**

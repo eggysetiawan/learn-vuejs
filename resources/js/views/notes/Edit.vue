@@ -108,7 +108,12 @@ export default {
         this.form
       );
       if (response.status == 200) {
-        console.log(response.data);
+        this.$toasted.show(response.data.message, {
+          type: "success",
+          duration: 6000,
+        });
+
+        this.$router.push("/notes/table");
       }
     },
   },

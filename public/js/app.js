@@ -2347,7 +2347,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 response = _context3.sent;
 
                 if (response.status == 200) {
-                  console.log(response.data);
+                  _this3.$toasted.show(response.data.message, {
+                    type: "success",
+                    duration: 6000
+                  });
+
+                  _this3.$router.push("/notes/table");
                 }
 
               case 5:
